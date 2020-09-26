@@ -33,6 +33,8 @@ jobs:
           scoop install gh
         if: matrix.os == 'windows-latest'
 
+      - run: gh --version
+
       # Install GCM Core
       - run: |
           sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
