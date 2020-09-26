@@ -1,0 +1,28 @@
+name: build
+env:
+  DOTNET_NOLOGO: true
+
+on: 
+  push:
+    branches: [main, dev]  
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    name: Build-${{matrix.os}}
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.x
+      - run: dotnet tool install -g --version 0.2.0-alpha dotnet-gcm
+      - run: dotnet gcm store --protocol=https --host=github.com --username=daniel@cazzulino.com --password=${{ secrets.GITHUB_TOKEN }}
+      - run: dotnet tool install -g dotnet-file
+      - run: dotnet file add https://github.com/kzu/secrets/blob/main/.netconfig.user
+      - run: dotnet tool install -g dotnet-config
+      - run: dotnet config sleet.version

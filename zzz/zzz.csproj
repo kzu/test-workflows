@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <Authors>kzu</Authors>
+    <Description>A dotnet global tool that does nothing and is only for testing</Description>
+
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Deterministic>true</Deterministic>
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Nullable>enable</Nullable>
+    <LangVersion>Preview</LangVersion>
+
+    <VersionPrefix>42.42.42</VersionPrefix>
+
+    <PackageId>dotnet-gcm</PackageId>
+    <ToolCommandName>dotnet-gcm</ToolCommandName>
+    <PackAsTool>true</PackAsTool>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>gcm.png</PackageIcon>
+    <PackageTags>git credentials dotnet</PackageTags>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <GenerateRepositoryUrlAttribute>true</GenerateRepositoryUrlAttribute>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)..\bin</PackageOutputPath>
+    <DefaultItemExcludes>$(DefaultExcludeItems);*.binlog</DefaultItemExcludes>
+
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="all" />
+  </ItemGroup>
+  
+</Project>
