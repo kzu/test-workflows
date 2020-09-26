@@ -28,9 +28,9 @@ jobs:
           sudo apt update
           sudo apt install gh
         if: matrix.os == 'ubuntu-latest'
-      - run: brew install gh
-        if: matrix.os == 'macOS-latest'
-      - run: scoop install gh
+      - run: |
+          iwr -useb get.scoop.sh | iex
+          scoop install gh
         if: matrix.os == 'windows-latest'
 
       # Install GCM Core
