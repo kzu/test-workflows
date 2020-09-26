@@ -51,7 +51,7 @@ jobs:
           brew tap microsoft/git
           brew cask install git-credential-manager-core
         if: matrix.os == 'macOS-latest'
-      - run: scoop install gh
+      - run: choco install git-credential-manager-for-windows
         if: matrix.os == 'windows-latest'
 
       - run: dotnet tool install -g --version 0.2.0-alpha dotnet-gcm
